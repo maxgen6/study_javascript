@@ -1,5 +1,5 @@
 let money,income,addExpenses ,
-deposit,mission,period, budgetDay , num;
+    deposit,mission,period, budgetDay;
 
     money = 1300;
     income = 'f600';
@@ -20,6 +20,11 @@ addExpenses = addExpenses.toLowerCase();
 
 budgetDay = money / 30;
     console.log('Дневной бюджет: ' + budgetDay);
+
+   
+
+
+      
 
 
 

@@ -3,6 +3,6 @@ deposit,mission,period  ;
 
 alert('Hello world!');
 
-console.log('Привет мир!');
+console.log('Привет Мир!');
 
 

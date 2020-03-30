@@ -1,22 +1,22 @@
-// let lang = prompt('Enter the lang');
-//     console.log(lang);
+let lang = prompt('Enter the lang');
+    console.log(lang);
 
-// if (lang == 'ru'){
-//     console.log('Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье ');
-// }  else if(lang == 'en'){
-//     console.log('Monday,tuesday,wensday,thursday,friday,saturday,sunday');
-// }  else {
-//     console.log('Error!');    
-// }
+if (lang == 'ru'){
+    console.log('Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье ');
+}  else if(lang == 'en'){
+    console.log('Monday,tuesday,wensday,thursday,friday,saturday,sunday');
+}  else {
+    console.log('Error!');    
+}
 
-// switch(lang){
-//     case 'ru':
-//         console.log('Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье '); 
-//     break;
-//     case 'en':
-//         console.log('Monday,tuesday,wensday,thursday,friday,saturday,sunday');
-//     break;
-// }
+switch(lang){
+    case 'ru':
+        console.log('Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье '); 
+    break;
+    case 'en':
+        console.log('Monday,tuesday,wensday,thursday,friday,saturday,sunday');
+    break;
+}
 
 
 let lang = [];

@@ -18,6 +18,7 @@
 //     break;
 // }
 
+
 let lang = [];
 let word = prompt('Enter the lang: ');
 

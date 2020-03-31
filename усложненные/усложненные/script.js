@@ -1,14 +1,33 @@
-let num = 266219;
-let multiply = 1;
+'use strict';
 
-num = num.toString();
+let lang = prompt('Enter the lang');
+    console.log(lang);
 
-for (let i = 0; i < num.length; i++){
-    multiply *= num[i];
-    console.log(multiply);
+if (lang == 'ru'){
+    console.log('Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье ');
+}  else if(lang == 'en'){
+    console.log('Monday,tuesday,wensday,thursday,friday,saturday,sunday');
+}  else {
+    console.log('Error!');    
 }
 
-let multiply2 = multiply ** 3; 
-console.log('После возведения в степень: ' + multiply2 );
-multiply2 = multiply2.toString();
-console.log('Первые 2 цифры: ' + multiply2.substr(0, 2));
+switch(lang){
+    case 'ru':
+        console.log('Понедельник, вторник, среда, четверг, пятница, суббота, воскресенье '); 
+    break;
+    case 'en':
+        console.log('Monday,tuesday,wensday,thursday,friday,saturday,sunday');
+    break;
+}
+
+
+let lang = [];
+let word = prompt('Enter the lang: ');
+
+    lang ['ru'] = ['Понедельник' , 'вторник' , 'среда' , 'четверг' , 'пятница' , 'суббота' , 'воскресенье'];
+    lang ['en'] = ['Monday' , 'tuesday' , 'wensday' , 'thursday' , 'friday' , 'saturday' , 'sunday'];
+    console.log(lang[word]);
+
+
+let namePerson = prompt('Введите имя');
+    console.log((namePerson == 'Артем') ? 'директор' : (namePerson == 'Максим') ? 'преподаватель' : 'студент');

@@ -53,11 +53,11 @@ budgetDay = Math.floor(accumulatedMonth / 30);
     }
 
 let getStatusIncome = function(){
-    if (budgetDay > 1200){
+    if (budgetDay >= 1200){
         return ('У вас высокий уровень дохода!');
-    }  else if(1200 > budgetDay > 600){
+    }  else if((1200 > budgetDay) && (budgetDay >= 600)){
         return ('У вас средний уровень дохода');
-    }  else if (600 > budgetDay > 0){
+    }  else if ((600 > budgetDay)&& (budgetDay > 0)){
         return ('К сожалению у вас уровень дохода ниже среднего');
     }  else {
         return ('Что-то пошло не так');

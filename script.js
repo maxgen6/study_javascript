@@ -1,9 +1,16 @@
 'use strict';
 
 
-let  money, expenses1, expenses2, amount1, amount2, budgetMonth, aim,
+let money = prompt('Ваш месячный доход?');
+    addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
+    deposit = confirm('Есть ли у вас депозит в банке?');
+    expenses1 = prompt('Введите обязательную статью расходов? ');   
+    expenses2 = prompt('Введите обязательную статью расходов? ');    
+    amount1 = prompt('Во сколько это обойдется? ');   
+    amount2 = prompt('Во сколько это обойдется? '); 
+    aim,
     budgetDay,
-    income = 'f600',
+    income = 'freelance',
     addExpenses,
     deposit,
     mission = 2500,

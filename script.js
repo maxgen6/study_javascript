@@ -1,7 +1,7 @@
 'use strict';
 
 let isNumber = function(n){
-    return (parseFloat(n)) && isFinite(n);
+    return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
 
@@ -66,7 +66,11 @@ accumulatedMonth  = getAccumulatedMonth();
 function getTargetMonth(){
     return mission / accumulatedMonth;
 }
+if(getTargetMonth() > 0){
 console.log('Цель будет достигнута за: ' + Math.ceil(getTargetMonth()) + ' месяцев');
+}else{
+    console.log('Цель не будет достигнута');
+}
 
 budgetDay = Math.floor(accumulatedMonth / 30);
     if(budgetDay <= 0){
@@ -83,7 +87,7 @@ let getStatusIncome = function(){
     }  else if ((600 > budgetDay) && (budgetDay > 0)){
         return ('К сожалению у вас уровень дохода ниже среднего');
     }  else {
-        return ('Цель не будет достигнута');
+        return ('Что-то пошло не так');
     }
 
 }

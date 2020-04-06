@@ -19,6 +19,8 @@ let appData = {
     expenses: {},
     addExpenses: [],
     deposit: false,
+    percentDeposit: 0,
+    moneyDeposit: 0,
     mission: 20000,
     period: 12,
     budget: money,
@@ -26,6 +28,15 @@ let appData = {
     budgetMonth: 0,
     expensesMonth: 0,
     asking: function(){
+
+        if(confirm('Есть ли у вас дополнительный заработок?')){
+            let itemIncome = +prompt('Какой у вас дополнительный заработок?', 'такси');
+            if (typeof itemIncome != 'string'){prompt('Какой у вас дополнительный заработок?', 'такси');}
+            let cashIncome = prompt('Сколько в месяц на этом зарабатываете?', 10000);
+            if(typeof cashIncome != 'number'){prompt('Сколько в месяц на этом зарабатываете?', 10000);}  
+            appData.income[itemIncome] = cashIncome;  
+        }
+
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
             appData.addExpenses = addExpenses.toLowerCase().split(',');
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
@@ -33,6 +44,9 @@ let appData = {
             let sum = 0;
             for (let i = 0; i < 2; i++){
                     exp[i] = prompt('Введите обязательную статью расходов? ');
+                    if(exp[i] == 'null' || typeof exp[i] == 'number'){
+                        exp[i] = prompt('Введите обязательную статью расходов? '); 
+                    }
                 let count;
                 do {
                     count = prompt('Во сколько это обойдется?');
@@ -43,6 +57,15 @@ let appData = {
             
             
 
+    },
+    getInfoDeposit: function(){
+        if(appData.deposit){
+            appData.percentDeposit = prompt('Какой годовой процент?', '10');
+            appData.moneyDeposit = prompt('какая сумма заложена?', 10000);
+        }
+    },
+    calcSavedMoney: function(){
+        return appData.budgetMonth * appData.period;
     }
     };
 

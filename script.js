@@ -44,7 +44,8 @@ let appData = {
             let sum = 0;
             for (let i = 0; i < 2; i++){
                     exp[i] = prompt('Введите обязательную статью расходов? ');
-                    if(exp[i] == 'null' || typeof exp[i] == 'number'){
+                    if(exp[i] == 'null' |
+                    | typeof exp[i] == 'number'){
                         exp[i] = prompt('Введите обязательную статью расходов? '); 
                     }
                 let count;

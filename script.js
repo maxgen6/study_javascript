@@ -38,7 +38,7 @@ let appData = {
                     count = prompt('Во сколько это обойдется?');
                 } while(!isNumber(count));
                 appData.expenses[exp[i]] = count; 
-                sum += +count;
+                
             }
             console.log(appData.expenses);
             
@@ -53,8 +53,8 @@ appData.asking();
 
 
  appData.getExpensesMonth = function (){
-    for (let key in appData){
-        // appData.expenses =  ;    
+    for (let key in appData.expenses){
+
         console.log(appData.expenses[key]);
         }
 
@@ -66,7 +66,7 @@ let expensesAmount = appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + expensesAmount);
 
 
-function getAccumulatedMonth(){
+ appData.getBudget = function(){
     return money - expensesAmount;
 }
 appData.getAccumulatedMonth = getAccumulatedMonth;

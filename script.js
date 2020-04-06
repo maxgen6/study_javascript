@@ -49,6 +49,7 @@ let appData = {
 appData.asking();
 
 
+
  appData.getExpensesMonth = function (){
     for (let key in appData.expenses){
         appData.expensesMonth += +appData.expenses[key];
@@ -97,6 +98,10 @@ appData.getStatusIncome = function(){
 }
 console.log(appData.getStatusIncome());
 
+
+for (let key in appData){
+    console.log('Наша программа включает в себя данные : ' + key + ' ' + appData[key]);
+}
 
 
 

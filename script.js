@@ -45,8 +45,6 @@ let appData = {
 
     }
     };
-//  let accumulatedMonth = 0;
-// console.log(appData);
 
 appData.asking();
 
@@ -56,12 +54,10 @@ appData.asking();
         appData.expensesMonth += +appData.expenses[key];
         }
 };
-// appData.getExpensesMonth = getExpensesMonth;
 
 
 appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + appData.expensesMonth);
-// console.log(typeof appData.expensesMonth);
 
  appData.getBudget = function(){
     return money - appData.expensesMonth;

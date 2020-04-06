@@ -61,8 +61,10 @@ appData.getExpensesMonth();
 console.log('Расходы за месяц: ' + appData.expensesMonth);
 
  appData.getBudget = function(){
-    return money - appData.expensesMonth;
+     appData.budgetMonth = money - appData.expensesMonth;
+     appData.budgetDay = appData.budgetMonth / 30;
 }
+appData.getBudget();
 
 appData.budgetMonth = appData.getBudget();
 appData.getTargetMonth = function (){

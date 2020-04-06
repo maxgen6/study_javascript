@@ -29,23 +29,20 @@ let appData = {
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
             appData.addExpenses = addExpenses.toLowerCase().split(',');
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
-           
-
             let exp = [];
             let sum = 0;
-
             for (let i = 0; i < 2; i++){
                     exp[i] = prompt('Введите обязательную статью расходов? ');
-                
                 let count;
                 do {
                     count = prompt('Во сколько это обойдется?');
                 } while(!isNumber(count));
-                appData.expenses[exp[i]] = count;
-                
+                appData.expenses[exp[i]] = count; 
+                sum += +count;
             }
-            console.log(expenses);
-        
+            console.log(appData.expenses);
+            
+
     }
     };
 //  let accumulatedMonth = 0;
@@ -55,11 +52,14 @@ console.log('Доходы за месяц: ' + money);
 appData.asking();
 
 
-let getExpensesMonth = function (){
-    
+ appData.getExpensesMonth = function (){
+    for (let key in appData){
+        // appData.expenses =  ;    
+        console.log(appData.expenses[key]);
+        }
 
 };
-appData.getExpensesMonth = getExpensesMonth;
+// appData.getExpensesMonth = getExpensesMonth;
 
 
 let expensesAmount = appData.getExpensesMonth();

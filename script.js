@@ -3,10 +3,6 @@ let isNumber = function(n){
     return !isNaN(parseFloat(n)) && isFinite(n);
 }
 
-let isString = function(n){
-    return (typeof n === 'string' || n instanceof String);
-}
-
 let money;
 let start = function(){
     do{
@@ -35,7 +31,8 @@ let appData = {
         if(confirm('Есть ли у вас дополнительный заработок?')){    
             do{
             itemIncome = prompt('Какой у вас дополнительный заработок?', 'такси');
-            } while(isNumber(itemIncome));       
+            } while(isNumber(itemIncome) || itemIncome == '' || itemIncome === null);  
+                 
         }
             let cashIncome;   
             do {
@@ -46,14 +43,20 @@ let appData = {
         
 
         let addExpenses = prompt('Перечислите возможные расходы за рассчитываемый период через запятую');
-            appData.addExpenses = addExpenses.toLowerCase().split(',');
+            appData.addExpenses = addExpenses.split(','); 
+            for(let i = 0; i < appData.addExpenses.length; i++){
+            appData.addExpenses[i] = appData.addExpenses[i].charAt(0).toUpperCase() + appData.addExpenses[i].slice(1);
+            // console.log(appData.addExpenses[i].toString(','));
+            }
+            // appData.addExpenses = appData.addExpenses.toUpperCase();
+            console.log(appData.addExpenses.toString(', '));
             appData.deposit = confirm('Есть ли у вас депозит в банке?');
             let exp = [];
             let sum = 0;
             for (let i = 0; i < 2; i++){
                     do{
                     exp[i] = prompt('Введите обязательную статью расходов? ');
-                    } while(isNumber(exp[i]));
+                    } while(isNumber(exp[i]) || exp[i] == '' || exp[i] == null);
                     
                 let count;
                 do {

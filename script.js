@@ -24,7 +24,6 @@ let start = document.getElementById('start'),
     targetAmount = document.querySelector('.target-amount'),
     incomeItem = document.querySelectorAll('.income-items'),
     rangePeriodTitle = document.querySelectorAll('.period');
-        
    
 
 
@@ -55,9 +54,9 @@ let appData = {
         //     money = prompt('Ваш месячный доход?');
         // }
         // while(!isNumber(money) || money === '' || money === null),       
-
-        if(salaryAmount.value === ''){
-            alert('Ошибка заполнения!');
+       
+        while(salaryAmount.value === ''){
+            start.style.display = 'none';
             return;
         }
         appData.budget = +salaryAmount.value;        
@@ -132,10 +131,11 @@ let appData = {
         }
     },
     rangePeriodTitle: function(item){
-        let periodAmount = document.querySelectorAll('.period');
+        let periodAmount = document.getElementsByClassName('.title period-amount');
         console.log(periodAmount);
         // console.log(document.querySelectorAll('.period-select'));
         periodAmount.value = item.target.value;
+        // periodAmount.textContent = periodAmount.value; 
         console.log(periodAmount.value);
     },
     getAddExpenses: function(){

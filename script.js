@@ -55,8 +55,9 @@ let appData = {
         // }
         // while(!isNumber(money) || money === '' || money === null),       
        
-        while(salaryAmount.value === ''){
-            start.style.display = 'none';
+        if(salaryAmount.value === ' '){
+            document.getElementById('start').disabled = true;
+            // alert('Ошибка заполнения!');
             return;
         }
         appData.budget = +salaryAmount.value;        
@@ -69,6 +70,7 @@ let appData = {
         appData.getExpensesMonth();
         appData.getAddExpenses();
         appData.getAddIncome();
+        // appData.rangePeriodTitle();
         appData.getIncome();
         appData.getBudget();
 
@@ -131,12 +133,12 @@ let appData = {
         }
     },
     rangePeriodTitle: function(item){
-        let periodAmount = document.getElementsByClassName('.title period-amount');
-        console.log(periodAmount);
+        periodSelect = document.querySelector('.period-select');
+        console.log(periodSelect);
         // console.log(document.querySelectorAll('.period-select'));
-        periodAmount.value = item.target.value;
+        periodSelect.value = item.target.value;
         // periodAmount.textContent = periodAmount.value; 
-        console.log(periodAmount.value);
+        console.log(periodSelect.value);
     },
     getAddExpenses: function(){
         let addExpenses = additionalExpensesItem.value.split(',');

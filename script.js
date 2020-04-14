@@ -50,11 +50,12 @@ let appData = {
     budgetMonth: 0,
     expensesMonth: 0,
     start: function(){
-        if(salaryAmount.value === ''){
-            document.getElementById('start').disabled = true;
-            // alert('Ошибка заполнения!');
-            return;
-        }
+     
+        // alert('Ошибка заполнения!');
+        // if(salaryAmount.value !== ''){
+        //     document.getElementById('start').disabled = false;
+        // };   
+        
         appData.budget = +salaryAmount.value;        
         console.log(salaryAmount.value);
 
@@ -71,6 +72,10 @@ let appData = {
         appData.calcPeriod();
 
         appData.showResult();
+    },
+    touchButton: function (){
+        start.disabled = false;
+
     },
     showResult: function(){
         budgetMonthValue.value = appData.budgetMonth;
@@ -213,6 +218,8 @@ let appData = {
    
     };
 
+start.disabled = true;
+salaryAmount.addEventListener('input', appData.touchButton);
 start.addEventListener('click', appData.start);    
 // appData.start();
 incomePlus.addEventListener('click', appData.addIncomeBlock);

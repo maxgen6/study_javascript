@@ -1,6 +1,7 @@
 'use strict';
 
 let start = document.getElementById('start'),
+    reset = document.getElementById('cancel'),
     salaryAmount = document.querySelector('.salary-amount'),
     incomePlus = document.getElementsByClassName('btn_plus income_add')[0],
     expensesPlus = document.getElementsByClassName('btn_plus expenses_add')[0],
@@ -23,7 +24,9 @@ let start = document.getElementById('start'),
     periodSelect = document.querySelector('.period-select'),
     targetAmount = document.querySelector('.target-amount'),
     incomeItem = document.querySelectorAll('.income-items'),
-    rangePeriodTitle = document.querySelectorAll('.period');
+    rangePeriodTitle = document.querySelectorAll('.period'),
+    blockInputValue = document.querySelectorAll('input'),
+    resetClick = document.querySelectorAll('input');
    
 
 
@@ -213,12 +216,32 @@ let appData = {
         return ('Что-то пошло не так');
     }
 
-    }
-   
+    },
+    blockInput: function(){
+        // console.log('blockInput: ', blockInputValue);
+        // blockInput.disabled = true;
+        blockInputValue.forEach(function(item){
+            item.disabled = true;
+        });
+        start.style.display = 'none';
+        reset.style.display = 'list-item';
+    },
+    reset: function(){
+        
+        // reset.style.display = 'list-item';
+        resetClick.forEach(function(item){
+            item.value = '';
+            item.disabled = false;
+        })
+    },
+    
     };
 
 salaryAmount.addEventListener('input', appData.touchButton);
-start.addEventListener('click', appData.start);    
+start.addEventListener('click', appData.start);
+start.addEventListener('click', appData.blockInput);
+// start.addEventListener('click', appData.reset);    
+reset.addEventListener('click', appData.reset);
 // appData.start();
 incomePlus.addEventListener('click', appData.addIncomeBlock);
 expensesPlus.addEventListener('click', appData.addExpensesBlock);
@@ -234,6 +257,7 @@ setTimeout(appData.start, 100);
 // if(appData.getTargetMonth() > 0){
 // console.log('Цель будет достигнута за: ' + Math.ceil(appData.getTargetMonth()) + ' месяцев');
 // } else{
+
 //     console.log('Цель не будет достигнута');
 // }
 

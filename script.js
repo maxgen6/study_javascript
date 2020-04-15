@@ -147,7 +147,6 @@ let appData = {
         periodSelect = document.querySelector('.period-select');
         let periodAmount = document.querySelector('.period-amount');
         periodAmount.textContent = periodSelect.value; 
-         console.log(periodSelect.value);
         },
     getAddExpenses: function(){
         // addExpenses.textContent = '';

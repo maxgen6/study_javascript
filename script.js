@@ -57,6 +57,7 @@ let appData = {
         // };   
         
         appData.budget = +salaryAmount.value;        
+        start.disabled = salaryAmount.value === '';
 
         appData.getExpenses();
        
@@ -216,7 +217,6 @@ let appData = {
    
     };
 
-start.disabled = true;
 salaryAmount.addEventListener('input', appData.touchButton);
 start.addEventListener('click', appData.start);    
 // appData.start();

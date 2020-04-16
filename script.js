@@ -165,7 +165,7 @@ let appData = {
             if(item !== ''){
                 this.addExpenses.push(item); //appData
             }
-        });
+        },this);
     },
     getAddIncome: function(){
         additionalIncomeItem.forEach(function(item){
@@ -243,16 +243,15 @@ start.addEventListener('click', appData.blockInput);
 // start.addEventListener('click', appData.reset);    
 reset.addEventListener('click', appData.reset);
 // appData.start();
-incomePlus.addEventListener('click', appData.addIncomeBlock.bind(appData));
-expensesPlus.addEventListener('click', appData.addExpensesBlock.bind(appData));
-periodSelect.addEventListener('input', appData.rangePeriodTitle.bind(appData));
+incomePlus.addEventListener('click', appData.addIncomeBlock);
+expensesPlus.addEventListener('click', appData.addExpensesBlock);
+periodSelect.addEventListener('input', appData.rangePeriodTitle);
 
 
 
 appData.getBudget();
 appData.budgetMonth = appData.getBudget(); //appData
 
-setTimeout(appData.start, 100);
 
 // if(appData.getTargetMonth() > 0){
 // console.log('Цель будет достигнута за: ' + Math.ceil(appData.getTargetMonth()) + ' месяцев');

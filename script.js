@@ -91,18 +91,18 @@ let appData = {
         incomePeriodValue.value = this.calcPeriod();
         
                 
-        periodSelect.addEventListener('click', this.changePeriodAmount);
+        periodSelect.addEventListener('click', appData.changePeriodAmount.bind(appData)); // спросить у макса
 
     },
-    changePeriodAmount: function(){
+    changePeriodAmount: function(){    
         incomePeriodValue.value = this.calcPeriod();
     },
     addExpensesBlock: function(){
         let expensesItems = document.querySelectorAll('.expenses-items');
         // console.log(expensesItems.parentNode); //получили родителя
         let cloneExpensesItem = expensesItems[0].cloneNode(true);
-        expensesItems[0].parentNode.insertBefore(cloneExpensesItem, expensesPlus); //использовать before
-        
+        expensesPlus.before(cloneExpensesItem); //использовать before
+        console.log(cloneExpensesItem);
         if(expensesItems.length === 2){
             expensesPlus.style.display = 'none';
         }
@@ -123,11 +123,15 @@ let appData = {
     addIncomeBlock:function(){
         let incomeTitle = document.querySelectorAll('.income-items'); 
         let cloneIncomeTitle = incomeTitle[0].cloneNode(true);
-        incomeTitle[0].parentNode.insertBefore(cloneIncomeTitle, incomePlus);
+        incomePlus.before(cloneIncomeTitle);
         
         if(incomeTitle.length === 2){
             incomePlus.style.display = 'none';
         }
+        cloneIncomeTitle.querySelectorAll('input').forEach(function(item){
+            item.value = '';
+        }, this);
+
     },
     getIncome:function(){
         // if (confirm('Есть ли у вас дополнительный источник заработка?')){
@@ -220,8 +224,10 @@ let appData = {
     blockInput: function(){
         // console.log('blockInput: ', blockInputValue);
         // blockInput.disabled = true;
-        blockInputValue.forEach(function(item){
+        blockInputValue.forEach(function(item){          
             item.disabled = true;
+            periodSelect.disabled = false;
+
         }, this);
         start.style.display = 'none';
         reset.style.display = 'list-item';
@@ -233,10 +239,11 @@ let appData = {
             item.value = '';
             item.disabled = false;
         }, this);
+        reset.style.display = 'none';
+        start.style.display = 'list-item';
     },
     
     };
-
 salaryAmount.addEventListener('input', appData.touchButton);
 start.addEventListener('click', appData.start.bind(appData));
 start.addEventListener('click', appData.blockInput);

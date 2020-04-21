@@ -228,17 +228,17 @@ AppData.prototype.reset = function(){
 };
 
 AppData.prototype.eventListener = function(){
-    salaryAmount.addEventListener('input', calcData.touchButton);
-    start.addEventListener('click', calcData.start.bind(calcData));
-    start.addEventListener('click', calcData.blockInput);
+    salaryAmount.addEventListener('input', this.touchButton);
+    start.addEventListener('click', this.start.bind(this));
+    start.addEventListener('click', this.blockInput);
     // start.addEventListener('click', appData.reset);    
-    reset.addEventListener('click', calcData.reset);
+    reset.addEventListener('click', this.reset);
     // appData.start();
-    incomePlus.addEventListener('click', calcData.addIncomeBlock);
-    expensesPlus.addEventListener('click', calcData.addExpensesBlock);
-    periodSelect.addEventListener('input', calcData.rangePeriodTitle);
-    calcData.getBudget();
-    calcData.budgetMonth = calcData.getBudget(); 
+    incomePlus.addEventListener('click', this.addIncomeBlock);
+    expensesPlus.addEventListener('click', this.addExpensesBlock);
+    periodSelect.addEventListener('input', this.rangePeriodTitle);
+    this.getBudget();
+    this.budgetMonth = this.getBudget(); 
 }
 
 const calcData = new AppData();

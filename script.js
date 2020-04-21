@@ -237,7 +237,8 @@ AppData.prototype.eventListener = function(){
     incomePlus.addEventListener('click', appData.addIncomeBlock);
     expensesPlus.addEventListener('click', appData.addExpensesBlock);
     periodSelect.addEventListener('input', appData.rangePeriodTitle);
-    
+    appData.getBudget();
+    appData.budgetMonth = appData.getBudget(); 
 }
 
 
@@ -248,8 +249,8 @@ appData.eventListener();
 
 
 
-appData.getBudget();
-appData.budgetMonth = appData.getBudget(); //appData
+// appData.getBudget();
+// appData.budgetMonth = appData.getBudget(); //appData
 
 
 // if(appData.getTargetMonth() > 0){

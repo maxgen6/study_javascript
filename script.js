@@ -114,7 +114,7 @@ addExpensesBlock(){
     }, this);
 }
 getExpenses() {
-    expensesItems.forEach(function(item){
+    expensesItems.forEach((item) => {
         const itemExpenses = item.querySelector('.expenses-title').value;
         const cashExpenses = item.querySelector('.expenses-amount').value;
         if(itemExpenses !== '' && cashExpenses !== ''){
@@ -141,7 +141,7 @@ getIncome() {
     //     let cashIncome = prompt('Сколько в месяц зарабатываете на этом?', 10000);
     //     appData.income[itemIncome] = cashIncome;
     // }
-    incomeTitle.forEach(function(item){
+    incomeTitle.forEach((item) => {
         const itemIncome = item.querySelector('.income-title').value;
         const cashIncome = item.querySelector('.income-amount').value;
         if(itemIncome !== '' && cashIncome !== ''){
@@ -160,7 +160,7 @@ rangePeriodTitle(item) {
 getAddExpenses() {
     let addExpenses = additionalExpensesItem.value.split(',');
     this.addExpenses = []; //appData
-    addExpenses.forEach(function(item){
+    addExpenses.forEach((item) => {
         
         item = item.trim();
         if(item !== ''){
@@ -170,7 +170,7 @@ getAddExpenses() {
 }
 
 getAddIncome() {
-    additionalIncomeItem.forEach(function(item){
+    additionalIncomeItem.forEach((item) => {
         const itemValue = item.value.trim();
         if(itemValue !== ''){
             this.addIncome.push(itemValue); //appData
@@ -226,7 +226,7 @@ getStatusIncome() {
 blockInput() {
     // console.log('blockInput: ', blockInputValue);
     // blockInput.disabled = true;
-    blockInputValue.forEach(function(item){          
+    blockInputValue.forEach((item) => {          
         item.disabled = true;
         periodSelect.disabled = false;
 
@@ -238,12 +238,13 @@ blockInput() {
 reset() {
     
     // reset.style.display = 'list-item';
-    resetClick.forEach(function(item){
+    resetClick.forEach((item) => {
         item.value = '';
         item.disabled = false;
     }, this);
     reset.style.display = 'none';
     start.style.display = 'list-item';
+    Object.assign(this, new AppData());
 }
 
 eventListener() {
@@ -251,7 +252,7 @@ eventListener() {
     start.addEventListener('click', this.start.bind(this));
     start.addEventListener('click', this.blockInput);
     // start.addEventListener('click', appData.reset);    
-    reset.addEventListener('click', this.reset);
+    reset.addEventListener('click', this.reset.bind(this));
     // appData.start();
     incomePlus.addEventListener('click', this.addIncomeBlock);
     expensesPlus.addEventListener('click', this.addExpensesBlock);

@@ -248,6 +248,11 @@ reset() {
 getInfoDeposit() {
     if(this.deposit){
        this.percentDeposit = depositPercent.value;
+       if(this.percentDeposit > 100 || this.percentDeposit  < 0){
+           alert('Введите число из диапозона от 0 до 100!');
+       }
+       
+
        this.moneyDeposit = depositAmount.value;
     }
 }
@@ -257,9 +262,8 @@ changePercent(){
     if(valueSelect === 'other'){
         depositPercent.disabled = false;
         depositPercent.style.display = 'inline-block';
-        // depositPercent.value = ;
-        depositPercent.addEventListener('change', )
-        console.log(depositPercent.value);
+        // if(depositPercent.value > 100 && )
+        // console.log(depositPercent);
     } else {
         depositPercent.value = valueSelect;
         console.log(depositPercent.value);
